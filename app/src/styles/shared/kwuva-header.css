@@ -1,0 +1,169 @@
+.kwuva-header {
+  background-color: rgb(88, 9, 88);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 86.5px;
+}
+
+.kwuva-header-left-section {
+  width: 180px;
+}
+
+@media (max-width: 800px) {
+  .kwuva-header-left-section {
+    width: unset;
+  }
+}
+
+.header-link {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.header-link:hover {
+  border: 1px solid white;
+}
+
+.kwuva-logo {
+  margin-top: 5px;
+}
+
+.kwuva-mobile-logo {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .kwuva-logo {
+    display: none;
+  }
+
+  .kwuva-mobile-logo {
+    display: block;
+    height: 35px;
+    margin-top: 5px;
+  }
+}
+
+.kwuva-header-middle-section {
+  flex: 1;
+  max-width: 850px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+
+.search-bar {
+  flex: 1;
+  width: 0;
+  font-size: 16px;
+  height: 40px;
+  padding-left: 15px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #808080;
+}
+
+.search-button {
+  background-color: rgb(254, 189, 105);
+  border: none;
+  width: 45px;
+  height: 40px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .search-button {
+    height: 40px !important;
+  }
+}
+
+.search-icon {
+  height: 22px;
+  margin-left: 2px;
+  margin-top: 3px;
+}
+
+.kwuva-header-right-section {
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.orders-link {
+  color: white;
+}
+
+.returns-text {
+  display: block;
+  font-size: 13px;
+}
+
+.orders-text {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cart-link {
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-icon {
+  width: 50px;
+}
+
+.cart-text {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cart-quantity {
+  color: rgb(240, 136, 4);
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  top: 4px;
+  left: 22px;
+  width: 26px;
+  text-align: center;
+}
+
+.loginpage {
+  color: white !important;
+  padding: 6px;
+}
+
+.wallet {
+  background-color: rgb(254, 189, 105);
+  border: none;
+  border-radius: 50px;
+}
+
+.wallet:hover {
+  background-color: #fff;
+}
+
+.sign-btn {
+  color: black;
+  background-color: rgb(254, 189, 105);
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 3px;
+}
