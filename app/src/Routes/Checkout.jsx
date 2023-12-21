@@ -327,7 +327,7 @@ const Checkout = () => {
     try {
       if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const paymentProcessorAddress = '0x473d98DeD2F941532aD112e03739C2A8f6Cd5F24';
+        const paymentProcessorAddress = '0xb74512701B8143fCBbBbd5474a14B789773b8c93';
         const paymentProcessorContract = new ethers.Contract(
           paymentProcessorAddress,
           PaymentProcessorABI,
