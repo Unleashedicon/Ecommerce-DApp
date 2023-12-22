@@ -27,8 +27,12 @@ const ProductGrid = () => {
     navigate('/login');
   };
 
-  const handleQuantityChange = (event) => {
-    setSelectedQuantity(parseInt(event.target.value, 10)); // Parse the value to an integer
+  const handleQuantityChange = (productId, event) => {
+    const value = parseInt(event.target.value, 10);
+    setSelectedQuantity((prevSelectedQuantities) => ({
+      ...prevSelectedQuantities,
+      [productId]: value !== 0 ? value : 1, // Ensure a minimum quantity of 1
+    }));
   };
 
   const updateCartQuantity = () => {
@@ -109,13 +113,15 @@ const ProductGrid = () => {
     }
   };
 
-  const handleAddToCartClick = (productId, selectedQuantity) => {
+  const handleAddToCartClick = (productId) => {
+    const quantityToAdd = selectedQuantity[productId] || 1;
     if (!user) {
       navigate('/login');
     } else {
-      handleAddToCart(productId, selectedQuantity);
+      handleAddToCart(productId, quantityToAdd);
     }
   };
+
   useEffect(() => {
     const handleStorageChange = () => {
       updateCartQuantity();
@@ -199,7 +205,10 @@ const ProductGrid = () => {
                 {formatCurrency(product.priceCents)}
               </div>
               <div className="product-quantity-container">
-                <select onChange={handleQuantityChange} value={selectedQuantity}>
+                <select
+                  onChange={(event) => handleQuantityChange(product.id, event)}
+                  value={selectedQuantity[product.id] || 1}
+                >
                   {[...Array(10).keys()].map((index) => (
                     <option key={index} value={index + 1}>
                       {index + 1}
@@ -215,7 +224,7 @@ const ProductGrid = () => {
               <button
                 type="submit"
                 className="add-to-cart-button button-primary js-add-to-cart"
-                onClick={() => handleAddToCartClick(product.id, selectedQuantity)}
+                onClick={() => handleAddToCartClick(product.id)}
                 data-product-id={product.id}
               >
                 Add to Cart
